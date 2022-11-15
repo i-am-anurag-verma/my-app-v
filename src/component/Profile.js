@@ -20,7 +20,7 @@ const Profile = () => {
       }
       setPerson(nextPerson);
   }
-  const age = 'age';
+  const age = 'age';  
   return (
     <div>
         <h1>Name {person['name']}</h1>
