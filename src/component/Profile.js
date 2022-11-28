@@ -22,7 +22,7 @@ const Profile = () => {
   }
   const age = 'age';  
   return (
-    <div>
+    <div style={{color:"#909497"}}>
         <h1>Name {person['name']}</h1>
         <h1>Age {person[age]}</h1>
         <button onClick={updateState} style={{backgroundColor:"aqua"}}>Update</button>
