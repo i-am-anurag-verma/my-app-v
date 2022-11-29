@@ -1,8 +1,26 @@
-.form-body{
-    background-color: rgb(244, 252, 252);
-    margin: 0%;
-    padding: 0%;
+body{
+    margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
 }
-.form_label{
-    margin-left: 5px;
+.form__input{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.btn{
+    width: 60%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
 }

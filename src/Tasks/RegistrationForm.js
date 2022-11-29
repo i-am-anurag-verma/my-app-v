@@ -16,7 +16,7 @@ console.log('======', formData)
     return (
         <div className="form">
             <div className="form-body">
-                <h1>Registration</h1>
+                <h1 style={{"text-align":"center"}}>Registration</h1>
                 <div className="username">
                     <label className="form__label" htmlFor="firstName">First Name </label>
                     <input className="form__input" type="text" onChange={(event) => handleFormInputOnchange(event, 'fname')} placeholder="First Name" value={formData.fname??''}/>
@@ -43,7 +43,7 @@ console.log('======', formData)
                 <label className='form_label' htmlFor='checkbox'>I agree to the terms and conditions.</label>
             </div>
             <div className="button_btn">
-                <button type="submit" className="btn">Register</button>
+                <button type="submit" className="btn" onClick={(event) => handleFormInputOnchange(event,'submit')} value={formData.submit??''}>Register</button>
             </div>
         </div>
         </div>
