@@ -12,7 +12,7 @@ body {
   width: 500px;
   padding: 25px;
   margin: 50px auto 0;
-  border-top: 5px solid blue;
+  border-top: 5px solid rgb(150, 150, 151);
   box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.5);
 }
 .form__input {

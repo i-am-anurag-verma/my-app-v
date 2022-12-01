@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import FormElement from '../component/form/formElement';
+import Button from '../component/form/Button';
 import '../styles/form.css'
 
 const RegistrationForm = () => {
@@ -12,37 +14,61 @@ const RegistrationForm = () => {
             [keyName]: event.target.value
         })
     };
-    console.log('======', formData)
+    
     return (
         <div className="form">
             <div className="form-body">
                 <h1 style={{ "textAlign": "center" }}>Registration</h1>
-                <div className="username">
-                    <label className="form__label" htmlFor="firstName">First Name </label>
-                    <input className="form__input" type="text" onChange={(event) => handleFormInputOnchange(event, 'fname')} placeholder="First Name" value={formData.fname ?? ''} />
-                </div>
-                <div className="lastname">
-                    <label className="form__label" htmlFor="lastName">Last Name </label>
-                    <input type="text" name="lastName" onChange={(event) => handleFormInputOnchange(event, 'lname')} className="form__input" placeholder="LastName" value={formData.lname ?? ''} />
-                </div>
-                <div className="email">
-                    <label className="form__label" htmlFor="email">Email </label>
-                    <input type="email" id="email" className="form__input" onChange={(event) => handleFormInputOnchange(event, 'email')} placeholder="Email" value={formData.email ?? ''} />
-                </div>
-                <div className="password">
-                    <label className="form__label" htmlFor="password">Password </label>
-                    <input className="form__input" type="password" id="password" onChange={(event) => handleFormInputOnchange(event, 'password')} placeholder="Password" value={formData.password ?? ''} />
-                </div>
-                <div className="confirm-password">
-                    <label className="form__label" htmlFor="confirmPassword">Confirm Password </label>
-                    <input className="form__input" type="password" id="confirmPassword" onChange={(event) => handleFormInputOnchange(event, 'cpassword')} placeholder="Confirm Password" value={formData.cpassword ?? ''} />
-                </div>
+                <FormElement 
+                   className="username"
+                   htmlFor="firstName"
+                   onChange={(event) => handleFormInputOnchange(event, 'fname')} 
+                   placeholder="First Name"
+                   labelText="First Name"
+                   value={formData.fname??''}
+                   required
+                />
+                <FormElement 
+                   className="lastName"
+                   htmlFor="LastName"
+                   onChange={(event) => handleFormInputOnchange(event, 'lname')} 
+                   placeholder="Last Name"
+                   labelText="Last Name"
+                   value={formData.lname??''}
+                   required
+                />
+                <FormElement 
+                   className="email"
+                   htmlFor="email"
+                   onChange={(event) => handleFormInputOnchange(event, 'fname')} 
+                   placeholder="Email"
+                   labelText="Email"
+                   value={formData.email??''}
+                   required
+                />
+                <FormElement 
+                   className="password"
+                   htmlFor="password"
+                   onChange={(event) => handleFormInputOnchange(event, 'password')} 
+                   placeholder="Password"
+                   labelText="Password"
+                   value={formData.password??''}
+                required
+                />
+                <FormElement 
+                   className="confirm-password"
+                   htmlFor="cpassword"
+                   onChange={(event) => handleFormInputOnchange(event, 'cpassword')} 
+                   placeholder="Confirm Password"
+                   labelText="Confirm Password"
+                   value={formData.cpassword??''}
+                   required
+                />
 
-                <div className='checkbox'>
-                    <input className='form_input' type="checkbox" id='checkbox' onChange={(event) => handleFormInputOnchange(event, 'tnc')} value={formData.tnc ?? ''} />
-                    <label className='form_label' htmlFor='checkbox'>I agree to the terms and conditions.</label>
-                </div>
-                <button type="submit" className="btn btn-primary">Register Now</button>
+                <div className="checkbox">
+			<label className="checkbox-inline"><input type="checkbox" required="required"/> I accept the <a href="/">Terms of Use</a> &amp; <a href="/">Privacy Policy</a></label>
+		</div>
+                <Button>Register Now</Button>
             </div>
         </div>
     )
