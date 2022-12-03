@@ -1,4 +1,6 @@
 import React from 'react';
+import Home from './component/form/Home';
+import Navbar from './component/Navbar';
 import Profile from './component/Profile';
 import Circle from './Tasks/Circle';
 import ObjectPropertiesDelete from './Tasks/ObjectPropertiesDelete';
@@ -9,6 +11,8 @@ import VolumeOfCylinder from './Tasks/VolumeOfCylinder';
 const App = () => {
     return (
         <div>
+            
+            
             {/* <Profile /> */}
             {/* <ObjectPropertiesList /> */}
             {/* <ObjectPropertiesDelete /> */}
@@ -16,6 +20,9 @@ const App = () => {
             {/* <VolumeOfCylinder height={3} radius={10} /> */}
             {/* <Circle  radius = {4}/> */}
             <RegistrationForm />
+            <Home/>
+            
+
 
         </div>
     )
