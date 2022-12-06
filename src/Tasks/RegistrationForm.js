@@ -26,7 +26,7 @@ const RegistrationForm = () => {
 
     //componentDidMount -> component mounted
     useEffect(() => {
-        // console.log('=====component did mounted')
+        console.log('=====component did mounted')
     }, [])
 
     // ComponentDidUpdate
@@ -93,13 +93,11 @@ const RegistrationForm = () => {
                     <Button onClick={() => setInfoTextVisible(!infoTextVisible)}>{infoTextVisible ? 'Hide Infotext' : 'Show infotext'}</Button>
                 </div>
                 <div>
-                    <Button>Register Now</Button>
-                </div>
+                    <Button >Register Now</Button>
                 {infoTextVisible && (
-                    <div>
                         <InfoText />
-                    </div>
                 )}
+                </div>
             </div>
         </div>
     )
