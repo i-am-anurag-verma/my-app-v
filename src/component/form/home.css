@@ -13,16 +13,7 @@ h1 {
     color: white;
     padding: 10px 55px 26px;
 }
-.control-btn{
-    display: inline-block;
-    float:left;
-    margin-right:5px;
-    -webkit-box-flex: 1 1 auto;
-    -moz-box-flex:  1 1 auto;
-    -webkit-flex:  1 1 auto;
-    -ms-flex:  1 1 auto;
-    flex:  1 1 auto;
-}
+
 .flex {
     display: -webkit-box;
     display: -moz-box;

@@ -1,5 +1,6 @@
 import React from 'react';
-import Home from './component/form/Home';
+// import Home from './component/form/Home';
+import UserTable from './component/tables/UserTable';
 // import Navbar from './component/Navbar';
 // import Profile from './component/Profile';
 // import Circle from './Tasks/Circle';
@@ -9,10 +10,12 @@ import Home from './component/form/Home';
 // import VolumeOfCylinder from './Tasks/VolumeOfCylinder';
 
 const App = () => {
+// import Home from './component/form/Home';
+    
     return (
         <div>
-
-            <Home/>
+            <UserTable />
+            {/* <Home/> */}
             {/* <RegistrationForm /> */}
             
             {/* <Profile /> */}
