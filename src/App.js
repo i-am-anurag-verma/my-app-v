@@ -1,6 +1,8 @@
 import React from 'react';
+import USerComments from './component/tables/USerComments';
+import UserToDo from './component/tables/UserToDo';
 // import Home from './component/form/Home';
-import UserTable from './component/tables/UserTable';
+// import UserTable from './component/tables/UserTable';
 // import Navbar from './component/Navbar';
 // import Profile from './component/Profile';
 // import Circle from './Tasks/Circle';
@@ -14,7 +16,9 @@ const App = () => {
     
     return (
         <div>
-            <UserTable />
+            {/* <UserTable /> */}
+            {/* <USerComments /> */}
+            <UserToDo/>
             {/* <Home/> */}
             {/* <RegistrationForm /> */}
             
