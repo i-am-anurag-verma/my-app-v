@@ -2,6 +2,21 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import "./table.css";
 
+function getTotalPageCount(noOfRecord, perPage) {
+  if (perPage === 0 || noOfRecord === 0) {
+    return 1;
+  }
+
+  const pageSize = Math.ceil(noOfRecord / perPage);
+  return pageSize;
+}
+
+function getPageRecord(records, currentPage, perPage) {
+  const from = (currentPage - 1) * perPage;
+  const to = from + perPage + 1;
+  return records.slice(from, to);
+}
+
 const UserTable = () => {
   const [data, setData] = useState([]);
 
@@ -28,7 +43,7 @@ const UserTable = () => {
           <th>Company</th>
         </tr>
         {data.map((item, index) => {
-            console.log("====>",item)
+          console.log("====>", item);
           return (
             <tr key={index}>
               <td>{item.id}</td>

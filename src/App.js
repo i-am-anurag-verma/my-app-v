@@ -1,4 +1,5 @@
 import React from 'react';
+import Master from './component/form/Master';
 import USerComments from './component/tables/USerComments';
 import UserToDo from './component/tables/UserToDo';
 // import Home from './component/form/Home';
@@ -16,9 +17,10 @@ const App = () => {
     
     return (
         <div>
+            <Master />
             {/* <UserTable /> */}
             {/* <USerComments /> */}
-            <UserToDo/>
+            {/* <UserToDo/> */}
             {/* <Home/> */}
             {/* <RegistrationForm /> */}
             
