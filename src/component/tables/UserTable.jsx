@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Pagination from "./Pagination";
 import "./table.css";
 
 function getTotalPageCount(noOfRecord, perPage) {
@@ -11,16 +12,21 @@ function getTotalPageCount(noOfRecord, perPage) {
   return pageSize;
 }
 
-function getPageRecord(records, currentPage, perPage) {
+function getPageRecords(records, currentPage, perPage) {
   const from = (currentPage - 1) * perPage;
-  const to = from + perPage + 1;
+  const to = from + perPage;
   return records.slice(from, to);
 }
 
+const PER_PAGE = 5;
+
 const UserTable = () => {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const visibleData = getPageRecords(data, currentPage, PER_PAGE)
 
   useEffect(() => {
+    
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         return response.json();
@@ -42,8 +48,7 @@ const UserTable = () => {
           <th>Website</th>
           <th>Company</th>
         </tr>
-        {data.map((item, index) => {
-          console.log("====>", item);
+        {visibleData.map((item, index) => {
           return (
             <tr key={index}>
               <td>{item.id}</td>
@@ -57,6 +62,7 @@ const UserTable = () => {
           );
         })}
       </table>
+      <Pagination currentPage={currentPage} totalPage={getTotalPageCount(data.length, PER_PAGE)} onClick={setCurrentPage} />
     </div>
   );
 };

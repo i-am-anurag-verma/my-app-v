@@ -19,18 +19,18 @@ const Circle = (props) => {
     const [radius, setRadius] = React.useState(props.radius);
 
 
-     const Area = Circless(radius);
+    const Area = Circless(radius);
     return (
         <div>
-            <button type="button" style={{backgroundColor:"red"}}>Click me</button>
+            <button type="button" style={{ backgroundColor: "red" }}>Click me</button>
             <p>
                 Radius:
                 <input name='radius' onChange={(e) => setRadius(parseInt(e.target.value))} />
             </p>
             <p>
-            Radius: 
-            <input name='radius' onChange={(e) => setRadius(parseInt(e.target.value))}/>
-          </p>
+                Radius:
+                <input name='radius' onChange={(e) => setRadius(parseInt(e.target.value))} />
+            </p>
             <div>
             </div>
             <p>Area of circle : {Area}</p>

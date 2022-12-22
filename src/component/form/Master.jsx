@@ -7,43 +7,45 @@ import UserToDo from "../tables/UserToDo";
 import Button from "./Button";
 
 const Master = () => {
-  const [display, setDisplay] = useState(false);
-  const [isDisplay, setIsDisplay] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [table, setTable] = useState(false);
+  const [comment, setComment] = useState(false);
+  const [toDo, setToDo] = useState(false);
 
   useEffect(() => {
-    if (display) {
-      setIsDisplay(false);
+    if (table) {
+      setComment(false);
+      setToDo(false)
     }
-  }, [display]);
+  }, [table]);
 
   useEffect(() => {
-    if (isDisplay) {
-      setDisplay(false);
+    if (comment) {
+      setTable(false);
+      setToDo(false)
     }
-  }, [isDisplay]);
+  }, [comment]);
 
   useEffect(() => {
-    if(isVisible){
-        setIsDisplay(false);
-        setDisplay(false);
+    if(toDo){
+      setTable(false);
+      setComment(false);
     }
-  }, [isVisible])
+  }, [toDo])
   
 
   return (
     <div className="btn-ctr">
         <h1>Table Data</h1>
-      <Button onClick={()=>setDisplay(!display)}>Table</Button>
-      <Button onClick={()=>setIsDisplay(!isDisplay)} >Comments</Button>
-      <Button onClick={()=>setIsVisible(!isVisible)}>ToDo</Button>
-      {display && (
+      <Button onClick={()=>setTable(!table)}>Table</Button>
+      <Button onClick={()=>setComment(!comment)} >Comments</Button>
+      <Button onClick={()=>setToDo(!toDo)}>ToDo</Button>
+      {table && (
         <UserTable/>
       )}
-      {isDisplay && (
+      {comment && (
         <USerComments/>
       )}
-       {isVisible && (
+       {toDo && (
         <UserToDo/>
     )}
     </div>
