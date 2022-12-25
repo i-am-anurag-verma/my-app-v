@@ -1,32 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import {getTotalPageCount, getPageRecords} from './queries'
+import { getData } from "./services";
+import { APIS } from "./constants";
+import { USER_TODO_PER_PAGE } from "./constants";
 
-function getTotalRecord(noOFRecords, perPage) {
-  if (perPage === 0 || noOFRecords === 0) {
-    return 1;
-  }
-  const pageSize = Math.ceil(noOFRecords / perPage);
-  return pageSize;
-}
 
-function pageRecords(records, currentPage, perPage){
-    const from = (currentPage-1)*perPage;
-    const to = from+perPage;
-    return records.slice(from, to)
-
-}
-
-const PER_PAGE = 10
 
 const UserToDo = () => {
   const [toDo, setToDo] = useState([]);
   const [visiblePage, setVisiblePage] = useState(1)
-  const pageData = pageRecords(toDo, visiblePage, PER_PAGE)
+  const pageData = getPageRecords(toDo, visiblePage, USER_TODO_PER_PAGE)
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
+    getData(APIS.todo)
       .then((data) => {
         setToDo(data);
       });
@@ -52,7 +40,7 @@ const UserToDo = () => {
           );
         })}
       </table>
-      <Pagination currentPage={visiblePage} totalPage={getTotalRecord(toDo.length, PER_PAGE)} onClick={setVisiblePage} />
+      <Pagination currentPage={visiblePage} totalPage={getTotalPageCount(toDo.length, USER_TODO_PER_PAGE)} onClick={setVisiblePage} />
     </div>
   );
 };

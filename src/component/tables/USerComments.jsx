@@ -3,32 +3,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Pagination from "./Pagination";
 import "./table.css";
+import {getTotalPageCount, getPageRecords} from './queries'
+import { USER_COMMENTS_PER_PAGE } from "./constants";
+import { getData } from "./services";
+import { APIS } from "./constants";
 
-function getPageCount(noOfRecord, perPage) {
-  if (perPage === 0 || noOfRecord === 0) {
-    return 1;
-  }
-
-  const pageSize = Math.ceil(noOfRecord / perPage);
-  return pageSize;
-}
-
-function getPageRecord(records, currentPage, perPage) {
-  const from = (currentPage - 1) * perPage;
-  const to = from + perPage;
-  return records.slice(from, to);
-}
-
-const PER_PAGE = 20;
 
 const USerComments = () => {
   const [isData, setIsData] = useState([]);
   const [showPage, setShowPage] = useState(1);
-  const isVisibleData = getPageRecord(isData, showPage,  PER_PAGE);
+  const isVisibleData = getPageRecords(isData, showPage, USER_COMMENTS_PER_PAGE);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/comments")
-      .then((res) => res.json())
+      getData(APIS.comments)
       .then((val) => {
         setIsData(val);
       });
@@ -54,7 +41,7 @@ const USerComments = () => {
           );
         })}
       </table>
-      <Pagination currentPage={showPage} totalPage={getPageCount(isData.length, PER_PAGE)} onClick={setShowPage} />
+      <Pagination currentPage={showPage} totalPage={getTotalPageCount(isData.length, USER_COMMENTS_PER_PAGE)} onClick={setShowPage} />
     </div>
   );
 };

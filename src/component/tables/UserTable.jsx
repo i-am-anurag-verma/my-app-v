@@ -2,23 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Pagination from "./Pagination";
 import "./table.css";
+import {getTotalPageCount, getPageRecords} from './queries'
+import { APIS, PER_PAGE } from "./constants";
+import { getData } from "./services";
 
-function getTotalPageCount(noOfRecord, perPage) {
-  if (perPage === 0 || noOfRecord === 0) {
-    return 1;
-  }
-
-  const pageSize = Math.ceil(noOfRecord / perPage);
-  return pageSize;
-}
-
-function getPageRecords(records, currentPage, perPage) {
-  const from = (currentPage - 1) * perPage;
-  const to = from + perPage;
-  return records.slice(from, to);
-}
-
-const PER_PAGE = 5;
 
 const UserTable = () => {
   const [data, setData] = useState([]);
@@ -26,11 +13,7 @@ const UserTable = () => {
   const visibleData = getPageRecords(data, currentPage, PER_PAGE)
 
   useEffect(() => {
-    
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        return response.json();
-      })
+    getData(APIS.user)
       .then((result) => {
         setData(result);
       });
