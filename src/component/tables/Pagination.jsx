@@ -1,4 +1,5 @@
 import React from 'react'
+import './pagination.css'
 
 
 const Pagination = (props) => {
@@ -8,7 +9,7 @@ const Pagination = (props) => {
     pages.push(i);
   }
   return (
-    <div>
+    <div className='styling'>
         {pages.map((page, index) => {
             return currentPage === page ? ` page ${page} `:(
                 <a href="#" key={index}  onClick={() => onClick(page)}>{` page ${page} `}</a>

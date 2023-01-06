@@ -24,16 +24,16 @@ const UserToDo = () => {
     <div>
       <table>
         <tr>
-          <th>UserId</th>
           <th>Id</th>
+          <th>UserId</th>
           <th>Title</th>
           <th>Completed</th>
         </tr>
         {pageData.map((item, index) => {
           return (
             <tr key={index}>
-              <td>{item.userId}</td>
               <td>{item.id}</td>
+              <td>{item.userId}</td>
               <td>{item.title}</td>
               <td>{item.completed ? "yes" : "no"}</td>
             </tr>

@@ -25,16 +25,16 @@ const USerComments = () => {
     <div>
       <table>
         <tr>
-          <th>PostId</th>
           <th>Id</th>
+          <th>PostId</th>
           <th>Name</th>
           <th>Email</th>
         </tr>
         {isVisibleData.map((item, index) => {
           return (
             <tr key={index}>
-              <td>{item.postId}</td>
               <td>{item.id}</td>
+              <td>{item.postId}</td>
               <td>{item.name}</td>
               <td>{item.email}</td>
             </tr>
