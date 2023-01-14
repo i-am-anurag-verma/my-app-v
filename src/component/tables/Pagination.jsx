@@ -19,4 +19,4 @@ const Pagination = (props) => {
   )
 }
 
-export default Pagination
+export default Pagination;
