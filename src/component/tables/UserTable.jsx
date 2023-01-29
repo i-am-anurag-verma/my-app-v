@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import "./table.css";
 import {getTotalPageCount, getPageRecords} from './queries'
